@@ -6,6 +6,7 @@
     <title>Metro District Designs</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -42,6 +43,45 @@
 
         .navbar-nav.ms-auto {
             margin-right: 0 !important;
+            align-items: center;
+        }
+
+        /* Search Bar Styles */
+        .search-container {
+            position: relative;
+            margin-left: 15px;
+        }
+
+        .search-icon {
+            color: white;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .search-popup {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            width: 300px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            margin-top: 10px;
+        }
+
+        .search-popup.show {
+            display: block;
+        }
+
+        .search-popup input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
 
         .hero-banner {
@@ -97,16 +137,6 @@
             object-fit: flex;
         }
 
-        /* Updated grid layout styles */
-        .grid-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: repeat(2, 1fr);
-            gap: 20px;
-            height: 600px;
-            margin-top: 30px;
-        }
-
         .grid-layout {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -139,52 +169,56 @@
             grid-row: 2;
         }
 
-        /* Long horizontal bar styles */
         .long-horizontal-bar {
             height: 300px;
             background-color: #E0E0E0;
             margin-top: 50px;
             margin-bottom: 50px;
         }
-        
     </style>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-        <a class="navbar-brand" href="Homepage.php">
-            <img src="/api/placeholder/40/40" class="rounded-circle">
-            Metro District Designs
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="Homepage.php">HOME</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Products.php">PRODUCTS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Commissioned.php">COMMISSIONED DESIGNS</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="Signup.php">SIGN-UP</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Login.php">LOGIN</a>
-                </li>
-            </ul>
+        <div class="container">
+            <a class="navbar-brand" href="Homepage.php">
+                <img src="/api/placeholder/40/40" class="rounded-circle">
+                Metro District Designs
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Homepage.php">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Products.php">PRODUCTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Commissioned.php">COMMISSIONED DESIGNS</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Signup.php">SIGN-UP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Login.php">LOGIN</a>
+                    </li>
+                    <li class="nav-item search-container">
+                        <i class="bi bi-search search-icon" id="searchToggle"></i>
+                        <div class="search-popup" id="searchPopup">
+                            <input type="text" placeholder="Search designs..." id="searchInput">
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
     
-     <!-- Colorful Divider -->
+    <!-- Colorful Divider -->
     <div class="colorful-divider"></div>
 
     <!-- Hero Banner -->
@@ -219,23 +253,23 @@
 
     <!-- Pre-Made Designs -->
     <div class="container my-5 pre-made-designs">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>PRE-MADE DESIGNS</h2>
-        <a href="Products.php" class="btn btn-link text-dark">SEE ALL →</a>
-    </div>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>PRE-MADE DESIGNS</h2>
+            <a href="Products.php" class="btn btn-link text-dark">SEE ALL →</a>
+        </div>
     
-    <div class="row g-3">
-        <div class="col-md-4">
-            <div class="design-placeholder"></div>
-        </div>
-        <div class="col-md-4">
-            <div class="design-placeholder"></div>
-        </div>
-        <div class="col-md-4">
-            <div class="design-placeholder"></div>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="design-placeholder"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="design-placeholder"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="design-placeholder"></div>
+            </div>
         </div>
     </div>
-</div>
 
     <!-- Updated Grid Layout Section -->
     <div class="container">
@@ -254,5 +288,31 @@
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchToggle = document.getElementById('searchToggle');
+            const searchPopup = document.getElementById('searchPopup');
+            const searchInput = document.getElementById('searchInput');
+
+            // Toggle search popup
+            searchToggle.addEventListener('click', function(e) {
+                searchPopup.classList.toggle('show');
+                if (searchPopup.classList.contains('show')) {
+                    searchInput.focus();
+                }
+                e.stopPropagation();
+            });
+
+            // Close search popup when clicking outside
+            document.addEventListener('click', function() {
+                searchPopup.classList.remove('show');
+            });
+
+            // Prevent search popup from closing when clicking inside
+            searchPopup.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
 </body>
 </html>
