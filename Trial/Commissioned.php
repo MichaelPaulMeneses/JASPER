@@ -54,14 +54,12 @@
         .design-placeholder {
             background-color:  #A99D9D;
             color: black;
-            font-style: bold;
             height: 500px;
         }
 
         .download-btn {
             background-color:  #A99D9D;
             color: black;
-            font-style: bold;
             border: none;
         }
 
