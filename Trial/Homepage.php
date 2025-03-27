@@ -217,9 +217,6 @@
             </div>
         </div>
     </nav>
-    
-    <!-- Colorful Divider -->
-    <div class="colorful-divider"></div>
 
     <!-- Hero Banner -->
     <div class="hero-banner">
@@ -250,7 +247,8 @@
             </div>
         </div>
     </div>
-
+       <!-- Colorful Divider -->
+       <div class="colorful-divider"></div>
     <!-- Pre-Made Designs -->
     <div class="container my-5 pre-made-designs">
         <div class="d-flex justify-content-between align-items-center mb-4">
