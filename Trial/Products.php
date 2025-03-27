@@ -17,6 +17,7 @@
         .navbar-custom .navbar-brand {
             display: flex;
             align-items: center;
+            font-style: bold;
             color: white;
         }
         .navbar-custom .navbar-brand img {
